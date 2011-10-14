@@ -2,6 +2,8 @@ Description
 ===========
 Output scrapy statistics to carbon/graphite
 
+<img src="http://github.com/noplay/scrapy-graphite/blob/master/img/folder.png?raw=true"/>
+
 Install
 =======
    pip install "ScrapyGraphite"
