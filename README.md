@@ -12,8 +12,8 @@ Configure your settings.py:
 
 Changelog
 =========
-0.1
-* Initial version
+0.1:
+ * Initial version
 
 Licence
 =======
