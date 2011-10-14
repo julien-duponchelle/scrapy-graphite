@@ -10,9 +10,12 @@ Install
 
 Configure your settings.py:
 ----------------------------
-    
-    STATS_CLASS = 'scrapygraphite.GraphiteStatsCollector'
 
+```python
+    STATS_CLASS = 'scrapygraphite.GraphiteStatsCollector'
+    GRAPHITE_HOST = "localhost"
+    GRAPHITE_PORT = 2003
+```
 
 Changelog
 =========
