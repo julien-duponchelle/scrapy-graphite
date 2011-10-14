@@ -10,6 +10,8 @@ Install
 
 Configure your settings.py:
 ----------------------------
+    
+    STATS_CLASS = 'scrapygraphite.GraphiteStatsCollector'
 
 
 Changelog
