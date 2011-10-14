@@ -12,7 +12,9 @@ Configure your settings.py:
 
 Changelog
 =========
+
 0.1:
+
  * Initial version
 
 Licence
