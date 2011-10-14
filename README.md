@@ -24,6 +24,14 @@ Changelog
 
  * Initial version
 
+
+Thanks
+========
+
+* Scrapy: http://scrapy.org
+* Galena: https://github.com/20minutes/galena
+* Graphite: http://graphite.wikidot.com/
+
 Licence
 =======
 Copyright 2011 Julien Duponchelle
