@@ -17,6 +17,34 @@ Configure your settings.py:
     GRAPHITE_PORT = 2003
 ```
 
+
+Configure graphite:
+-------------------
+
+In graphite you need to add in your storage-aggregation.conf:
+
+```ini
+[scrapy_min]
+pattern = ^scrapy\..*\.min$
+xFilesFactor = 0.1
+aggregationMethod = min
+
+[scrapy_max]
+pattern = ^scrapy\..*\.max$
+xFilesFactor = 0.1
+aggregationMethod = max
+
+[scrapy_sum]
+pattern = ^scrapy\..*\.sum$
+xFilesFactor = 0.1
+aggregationMethod = sum
+```
+
+And in aggregation-rules.conf  (look in storage-schemas.conf to see the minimum retention)
+
+```ini
+```
+
 Changelog
 =========
 
