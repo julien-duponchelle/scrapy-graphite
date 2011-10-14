@@ -30,7 +30,7 @@ class GraphiteStatsCollector(StatsCollector):
         if isinstance(value, int) or isinstance(value, float):
             if key == "envinfo/pid":
                 return
-            self._galena.send(self._get_stats_key(spider, key) + "_avg", value)
+            self._galena.send(self._get_stats_key(spider, key) + "_last", value)
 
     def inc_value(self, key, count=1, start=0, spider=None):
         super(GraphiteStatsCollector, self).inc_value(key, count, start, spider)
