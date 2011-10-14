@@ -21,7 +21,7 @@ Configure your settings.py:
 Configure graphite:
 -------------------
 
-In graphite you need to add in your storage-aggregation.conf:
+In graphite you need to add in your *storage-aggregation.conf*:
 
 ```ini
 [scrapy_min]
@@ -40,7 +40,7 @@ xFilesFactor = 0.1
 aggregationMethod = sum
 ```
 
-And in aggregation-rules.conf  (look in storage-schemas.conf to see the minimum retention)
+And in *aggregation-rules.conf*  (look in *storage-schemas.conf* to see the minimum retention)
 
 ```ini
 ```
