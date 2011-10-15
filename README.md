@@ -40,11 +40,6 @@ xFilesFactor = 0.1
 aggregationMethod = sum
 ```
 
-And in *aggregation-rules.conf*  (look in *storage-schemas.conf* to see the minimum retention)
-
-```ini
-```
-
 Changelog
 =========
 
