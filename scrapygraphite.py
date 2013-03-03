@@ -14,12 +14,19 @@ limitations under the License.'''
 
 from scrapy.statscol import StatsCollector
 from galena import Galena
-from scrapy.conf import settings
+
+GRAPHITE_HOST = 'localhost'
+GRAPHITE_PORT = 2003
 
 class GraphiteStatsCollector(StatsCollector):
-    def __init__(self):
-        super(GraphiteStatsCollector, self).__init__()
-        self._galena = Galena(host=settings['GRAPHITE_HOST'], port=settings['GRAPHITE_PORT'])
+    def __init__(self, crawler):
+        super(GraphiteStatsCollector, self).__init__(crawler)
+
+        host = crawler.settings.get("GRAPHITE_HOST", GRAPHITE_HOST)
+        port = crawler.settings.get("GRAPHITE_PORT", GRAPHITE_PORT)
+
+        self.crawler = crawler
+        self._galena = Galena(host=host, port=port)
 
     def _get_stats_key(self, spider, key):
         if spider is not None:
