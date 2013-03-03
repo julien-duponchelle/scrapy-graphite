@@ -17,6 +17,7 @@ from galena import Galena
 
 GRAPHITE_HOST = 'localhost'
 GRAPHITE_PORT = 2003
+GRAPHITE_IGNOREKEYS = ["envinfo/pid"]
 
 class GraphiteStatsCollector(StatsCollector):
     def __init__(self, crawler):
@@ -25,6 +26,8 @@ class GraphiteStatsCollector(StatsCollector):
         host = crawler.settings.get("GRAPHITE_HOST", GRAPHITE_HOST)
         port = crawler.settings.get("GRAPHITE_PORT", GRAPHITE_PORT)
 
+        self.ignore_keys = crawler.settings.get("GRAPHITE_IGNOREKEYS", 
+                                                GRAPHITE_IGNOREKEYS)
         self.crawler = crawler
         self._galena = Galena(host=host, port=port)
 
