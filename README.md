@@ -43,6 +43,10 @@ aggregationMethod = sum
 Changelog
 =========
 
+0.2:
+
+ * Scrapy 0.16 compatibility
+
 0.1:
 
  * Initial version

@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(name='ScrapyGraphite',
-      version='0.1',
+      version='0.2',
       license='Apache License, Version 2.0',
       description='Output scrapy statistics to carbon/graphite.',
       author='Julien Duponchelle',
