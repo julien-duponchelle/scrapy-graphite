@@ -40,25 +40,27 @@ class GraphiteStatsCollector(StatsCollector):
         super(GraphiteStatsCollector, self).set_value(key, value, spider)
         self._set_value(key, value, spider)
 
-    def _set_value(self, key, value, spider):    
-        if isinstance(value, int) or isinstance(value, float):
-            if key == "envinfo/pid":
-                return
-            self._galena.send(self._get_stats_key(spider, key) + "_last", value)
+    def _set_value(self, key, value, spider):
+        if isinstance(value, (int, float)) and key not in self.ignore_keys:
+            k = self._get_stats_key(spider, key)
+            self._galena.send(k, value)
 
     def inc_value(self, key, count=1, start=0, spider=None):
         super(GraphiteStatsCollector, self).inc_value(key, count, start, spider)
-        self._galena.send(self._get_stats_key(spider, key) + "_sum", count)
+        self._galena.send(self._get_stats_key(spider, key), 
+                            self.crawler.stats.get_value(key))
 
     def max_value(self, key, value, spider=None):
         super(GraphiteStatsCollector, self).max_value(key, value, spider)
-        self._galena.send(self._get_stats_key(spider, key) + "_max", value)
+        self._galena.send(self._get_stats_key(spider, key), 
+                            self.crawler.stats.get_value(key))
 
     def min_value(self, key, value, spider=None):
         super(GraphiteStatsCollector, self).min_value(key, value, spider)
-        self._galena.send(self._get_stats_key(spider, key) + "_min", value)
+        self._galena.send(self._get_stats_key(spider, key), 
+                            self.crawler.stats.get_value(key))
 
     def set_stats(self, stats, spider=None):
         super(GraphiteStatsCollector, self).set_stats(stats, spider)
         for key in stats:
-            self._set_value(key, stats[key],spider)
+            self._set_value(key, stats[key], spider)
