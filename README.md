@@ -11,7 +11,7 @@ Install
 Configure scrapy project:
 -------------------------
 
-Set `scrapygraphite.GraphiteStatsCollector` to `STATS_CLASS` in your scrapy project `settings.py` as follows
+Set `STATS_CLASS` to `scrapygraphite.GraphiteStatsCollector` in your scrapy project `settings.py` as follows
 
 ```python
 STATS_CLASS = 'scrapygraphite.GraphiteStatsCollector'
