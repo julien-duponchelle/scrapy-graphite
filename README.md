@@ -25,17 +25,17 @@ In graphite you need to add in your *storage-aggregation.conf*:
 
 ```ini
 [scrapy_min]
-pattern = ^scrapy\..*\.min$
+pattern = ^scrapy\..*_min$
 xFilesFactor = 0.1
 aggregationMethod = min
 
 [scrapy_max]
-pattern = ^scrapy\..*\.max$
+pattern = ^scrapy\..*_max$
 xFilesFactor = 0.1
 aggregationMethod = max
 
 [scrapy_sum]
-pattern = ^scrapy\..*\.sum$
+pattern = ^scrapy\..*_count$
 xFilesFactor = 0.1
 aggregationMethod = sum
 ```
