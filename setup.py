@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(name='ScrapyGraphite',
-      version='0.1',
+      version='0.2',
       license='Apache License, Version 2.0',
       description='Output scrapy statistics to carbon/graphite.',
       author='Julien Duponchelle',
@@ -10,7 +10,7 @@ setup(name='ScrapyGraphite',
       keywords="scrapy carbon graphite",
       py_modules=['scrapygraphite'],
       platforms = ['Any'],
-      install_requires = ['scrapy', 'galena'],
+      install_requires = ['scrapy>=0.16', 'galena'],
       classifiers = [ 'Development Status :: 4 - Beta',
                       'Environment :: No Input/Output (Daemon)',
                       'License :: OSI Approved :: Apache Software License',
