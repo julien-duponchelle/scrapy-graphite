@@ -1,3 +1,7 @@
-*.swp
 *.pyc
-*.pyo
+_trial_temp
+dropin.cache
+docs/build
+*egg-info
+.tox
+venv

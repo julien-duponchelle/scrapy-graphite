@@ -6,42 +6,54 @@ Output scrapy statistics to carbon/graphite
 
 Install
 =======
-   pip install "ScrapyGraphite"
+   pip install ScrapyGraphite
 
-Configure your settings.py:
-----------------------------
+Configure scrapy project:
+-------------------------
+
+Set `STATS_CLASS` to `scrapygraphite.GraphiteStatsCollector` in your scrapy project `settings.py` as follows
 
 ```python
-    STATS_CLASS = 'scrapygraphite.GraphiteStatsCollector'
-    GRAPHITE_HOST = "localhost"
-    GRAPHITE_PORT = 2003
+STATS_CLASS = 'scrapygraphite.GraphiteStatsCollector'
+```
+
+If graphite carbon is not using default values (localhost:2003), add `GRAPHITE_HOST` and/or `GRAPHITE_PORT`.
+
+```python
+GRAPHITE_HOST = "localhost"
+GRAPHITE_PORT = 2003
 ```
 
 
 Configure graphite:
 -------------------
 
-In graphite you need to add in your *storage-aggregation.conf*:
+In graphite you need to add in your `storage-aggregation.conf`:
 
 ```ini
 [scrapy_min]
-pattern = ^scrapy\..*\.min$
+pattern = ^scrapy\..*_min$
 xFilesFactor = 0.1
 aggregationMethod = min
 
 [scrapy_max]
-pattern = ^scrapy\..*\.max$
+pattern = ^scrapy\..*_max$
 xFilesFactor = 0.1
 aggregationMethod = max
 
 [scrapy_sum]
-pattern = ^scrapy\..*\.sum$
+pattern = ^scrapy\..*_count$
 xFilesFactor = 0.1
 aggregationMethod = sum
 ```
 
 Changelog
 =========
+
+0.2:
+
+ * Scrapy 0.16 compatibility
+ * Default configuration
 
 0.1:
 
